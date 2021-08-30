@@ -1,0 +1,43 @@
+{% extends 'base_auth.html' %}
+<style type="text/css">
+	
+	#inputGroupSelect04{
+		padding-left:  40px;
+	}
+
+</style>
+
+{% block content %}
+
+
+
+<center>
+	<br>
+	<h2>Hey, hope you are doing fine.</h2><br/>
+	{% include 'partials/_messages.html' %}
+	<form action="{% url 'preferences' %}" method="post">
+		{% csrf_token %}
+	<div class="input-group">
+ 	 <select name="currency" class="custom-select p-2 bg-light border abc" id="inputGroupSelect04" aria-label="Example select with button addon">
+
+
+ 	 	{% if user_prefrences.currency %}
+
+ 	 		<option name="currency" value="{{user_prefrences.currency}}" selected>{{user_prefrences.currency}}</option>
+
+ 	 	{% endif %}
+    
+    {% for currency in currencies %}
+
+    	<option name="currency" value="{{currency.name}} - {{currency.value}}">{{currency.name}} - {{currency.value}}</option>
+
+    {% endfor %}
+  </select>
+  <input class="btn btn-outline-secondary" type="submit" value="Save"/>
+</div>
+</form>
+
+</center>
+
+	
+{% endblock %}

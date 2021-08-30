@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block content%}
+{% load static %}
+
+
+
+<div class="container mt-5">
+	<div class="row">
+		<div class="col-md-5">
+			
+		</div>
+
+		<div class="col-md-5">
+			<div class="alert alert-primary" role="alert">
+ 			 Your total income till now is {{total_income.income}}
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="container mt-3">
+	<div class="row">
+		<div class="col-md-5">
+			
+		</div>
+
+		<div class="col-md-5">
+			<div class="alert alert-danger" role="alert">
+ 			 Your total expense till now is {{total_expense.expense}}
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+<div class="container mt-3">
+	<div class="row">
+		<div class="col-md-5">
+			
+		</div>
+
+		<div class="col-md-5">
+			{% if total_expense.expense > total_income.income %}
+
+			<div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+			  <div class="card-header">Oops Debts..</div>
+			  <div class="card-body">
+			    <h5 class="card-title">Stop wasting your money..</h5>
+			    <p class="card-text"> You are right now in debts,  you have to manage {{total_savings}} from somewhere.</p>
+			  </div>
+			</div>
+
+			{% else %}
+
+
+			<div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+			  <div class="card-header">Savings...</div>
+			  <div class="card-body">
+			    <h5 class="card-title">You have done great!</h5>
+			    <p class="card-text"> Good to see that you have stopped using your money in unnecessary things,
+			    you saved {{total_savings}} till now. </p>
+			  </div>
+			</div>
+
+
+			{% endif %}
+		</div>
+	</div>
+</div>
+
+
+
+
+{% endblock %}

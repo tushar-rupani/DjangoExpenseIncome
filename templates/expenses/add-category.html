@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container mt-4">
+	<div class="row">
+		<div class="col-md-4">
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-body">
+					<div class="card-title">
+						<h3>Add Your Category</h3>
+					</div>
+					<br/>
+
+					<form action="{% url 'add_category' %}" method="post">
+						
+						 {% include 'partials/_messages.html' %}
+
+						 {% csrf_token %}
+
+						 <div class="form-group">
+				            <input
+				              type="text"
+				              name="username"
+				              placeholder="Add Category (ex. Travel, Cinema etc.)"
+				              id="usernameField"
+				              
+				             
+				              class="form-control form-control-sm"
+				            />
+				          </div>
+
+				          <input type="submit" name="btn1" value="Add Category" class="btn btn-primary">
+					</form>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+
+{% endblock %}
